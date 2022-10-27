@@ -1,0 +1,23 @@
+name: Test
+
+on:
+  push:
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v1
+      - uses: ProjectEuropa/action-docker-layer-caching@test
+        continue-on-error: true
+      - name: Test
+        working-directory: test_project
+        run: |
+          docker-compose build
+        
