@@ -14,7 +14,7 @@ jobs:
     steps:
       - name: Check out code
         uses: actions/checkout@v1
-      - uses: ProjectEuropa/action-docker-layer-caching
+      - uses: ProjectEuropa/action-docker-layer-caching@feature/fix-warning
         continue-on-error: true
       - name: Test
         working-directory: test_project
